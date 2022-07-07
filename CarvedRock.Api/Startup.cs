@@ -45,6 +45,9 @@ namespace CarvedRock.Api
 
         public void Configure(IApplicationBuilder app, CarvedRockDbContext dbContext)
         {
+            app.UseCors(builder => 
+                builder.AllowAnyOrigin().AllowAnyMethod());
+
             app.UseGraphQL<CarvedRockSchema>();
             app.UseGraphQLPlayground(new GraphQLPlaygroundOptions());
             dbContext.Seed();
