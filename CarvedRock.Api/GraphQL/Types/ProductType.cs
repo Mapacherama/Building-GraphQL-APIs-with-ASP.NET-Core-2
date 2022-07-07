@@ -2,6 +2,7 @@
 using CarvedRock.Api.Repositories;
 using GraphQL.DataLoader;
 using GraphQL.Types;
+using System.Security.Claims;
 
 namespace CarvedRock.Api.GraphQL.Types
 {
@@ -23,6 +24,7 @@ namespace CarvedRock.Api.GraphQL.Types
                 "reviews",
                 resolve: context =>
                 {
+                    var user = (ClaimsPrincipal)context.UserContext;
                     var loader =
                         dataLoaderAccessor.Context.GetOrAddCollectionBatchLoader<int, ProductReview>(
                             "GetReviewsByProductId", reviewRepository.GetForProducts);

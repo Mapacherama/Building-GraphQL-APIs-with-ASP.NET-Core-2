@@ -73,7 +73,7 @@ namespace CarvedRock.Api.Data.Migrations
             modelBuilder.Entity("CarvedRock.Api.Data.Entities.ProductReview", b =>
                 {
                     b.HasOne("CarvedRock.Api.Data.Entities.Product", "Product")
-                        .WithMany()
+                        .WithMany("ProductReviews")
                         .HasForeignKey("ProductId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

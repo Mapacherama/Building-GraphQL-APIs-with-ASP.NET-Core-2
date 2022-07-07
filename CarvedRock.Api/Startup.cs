@@ -38,6 +38,9 @@ namespace CarvedRock.Api
                 .AddGraphTypes(ServiceLifetime.Scoped)
                 .AddUserContextBuilder(context => context.User)
                 .AddDataLoader();
+
+            services.AddCors();
+                
         }
 
         public void Configure(IApplicationBuilder app, CarvedRockDbContext dbContext)
