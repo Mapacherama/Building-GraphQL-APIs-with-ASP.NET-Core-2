@@ -26,7 +26,7 @@ namespace CarvedRock.Web.Clients
                       reviews { title review }
                     }
                 }",
-                Variables = new {productId = id}
+                Variables = new { productId = id }
             };
             var response = await _client.PostAsync(query);
             return response.GetDataFieldAs<ProductModel>("product");
